@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('laporan','LaporanController@index');
+Route::get('createLaporan','LaporanController@create');
+
+Route::get('coba', function () {
+    return "coba coba";
 });
