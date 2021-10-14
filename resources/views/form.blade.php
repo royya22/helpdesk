@@ -119,11 +119,11 @@
             </div>
           </div>
           <p>
-            <button type="button" class="btn btn-default btn-block text-uppercase" onclick="location.href='queue.html';">Lihat Laporan</button>
+            <button type="button" class="btn btn-default btn-block text-uppercase" onclick="location.href='laporan';">Lihat Laporan</button>
           </p>
           <br>
           <h5 class="text-center">
-            <a href="index.html">Kembali ke Beranda</a>
+            <a href="index">Kembali ke Beranda</a>
           </h5>
         </div>
       </div>
