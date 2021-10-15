@@ -123,7 +123,7 @@
           </p>
           <br>
           <h5 class="text-center">
-            <a href="index">Kembali ke Beranda</a>
+            <a href="{{ url('/') }}">Kembali ke Beranda</a>
           </h5>
         </div>
       </div>
