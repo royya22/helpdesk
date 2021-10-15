@@ -45,7 +45,7 @@
           </div>
           <div class="panel panel-default address">
             <div class="panel-body">
-              <a href="#" target="_blank">
+              <a href="https://api.whatsapp.com/send?phone=622157895285" target="_blank">
                 <h3>
                   <span class="glyphicon glyphicon-phone purple" aria-hidden="true"></span> &nbsp; +62 21-5789-5285
                 </h3>
@@ -57,7 +57,7 @@
           </p>
           <br>
           <h5 class="text-center">
-            <a href="index.html">Kembali ke Beranda</a>
+            <a href="{{ url('/') }}">Kembali ke Beranda</a>
           </h5>
         </div>
       </div>

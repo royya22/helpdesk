@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubyekTable extends Migration
+class CreateSubjekTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateSubyekTable extends Migration
      */
     public function up()
     {
-        Schema::create('subyek', function (Blueprint $table) {
-            $table->increments('id_subyek');
-            $table->string('kode_subyek',100)->unique();
-            $table->string('subyek',100);
+        Schema::create('subjek', function (Blueprint $table) {
+            $table->increments('id_subjek');
+            $table->string('kode_subjek',100)->unique();
+            $table->string('subjek',100);
             $table->timestamps();
         });
     }

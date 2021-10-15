@@ -49,7 +49,7 @@
           </p>
           <br>
           <h5 class="text-center">
-            <a href="index.html">Kembali ke Beranda</a>
+            <a href="{{ url('/') }}">Kembali ke Beranda</a>
           </h5>
         </div>
       </div>

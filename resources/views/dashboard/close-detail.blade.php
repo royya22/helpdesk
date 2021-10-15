@@ -9,16 +9,18 @@
     <meta name="description" content="Form Helpdesk">
     <meta name="author" content="BSID">
     <link rel="icon" href="https://setjen.mpr.go.id/img/setjen-min.png">
-    <title>Detail Formulir</title>
+
+    <title>Detail Tiket</title>
+    
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -30,7 +32,7 @@
     <div class="container">
       <br>
       <p class="text-center">
-        <button type="button" class="btn btn-default"onclick="location.href='close.html';">&larr; Kembali</button>
+        <button type="button" class="btn btn-default"onclick="location.href='close';">&larr; Kembali</button>
         <button type="button" class="btn btn-primary">Cetak</button>
       </p>
       <br>
@@ -42,7 +44,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <center>
-                    <img class="img-responsive" alt="Responsive image" src="../assets/img/sid.svg" style="max-width:120px">
+                    <img class="img-responsive" alt="Responsive image" src="assets/img/sid.svg" style="max-width:120px">
                   </center>
                 </div>
                 <div class="col-md-8">
@@ -106,7 +108,7 @@
             </div>
           </div>
           <h5 class="text-center">
-            <a href="close.html">Kembali</a>
+            <a href="close">Kembali</a>
           </h5>
         </div>
       </div>

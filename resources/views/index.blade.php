@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Form Helpdesk">
     <meta name="author" content="BSID">
-    <meta http-equiv="refresh" content="1; url={{ url('createLaporan') }}" />
+    <meta http-equiv="refresh" content="1; url={{ url('create-laporan') }}" />
     <link rel="icon" href="https://setjen.mpr.go.id/img/setjen-min.png">
     <title>BSID</title>
     <!-- Bootstrap core CSS -->

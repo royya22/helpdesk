@@ -19,7 +19,7 @@ class CreateLaporanTable extends Migration
             $table->string('nama_pemohon',100);
             $table->string('unit',100);
             $table->string('ruangan',100);
-            $table->string('subyek',100);
+            $table->string('subjek',100);
             $table->text('deskripsi');
             $table->string('status',100);
             $table->string('keterangan_pending',100);
