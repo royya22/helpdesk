@@ -15,8 +15,8 @@ class CreateUnitTable extends Migration
     {
         Schema::create('unit', function (Blueprint $table) {
             $table->increments('id_unit');
-            $table->string('kode_bagian',100)->unique();
-            $table->string('nama_bagian',100);
+            $table->string('kode_unit',100)->unique();
+            $table->string('nama_unit',100);
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
     <meta name="description" content="Form Helpdesk">
     <meta name="author" content="BSID">
     <link rel="icon" href="https://setjen.mpr.go.id/img/setjen-min.png">
-    <title>Detail Insiden</title>
+    <title>Form Insiden</title>
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -29,7 +29,7 @@
     <div class="container">
       <br>
       <p class="text-center">
-        <button type="button" class="btn btn-default"onclick="location.href='insident';">&larr; Kembali</button>
+        <button type="button" class="btn btn-default"onclick="location.href='Insiden';">&larr; Kembali</button>
         <button type="button" class="btn btn-primary">Cetak</button>
       </p>
       <br>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laporan;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,7 +18,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $data['open'] = Laporan::where('status','like','Open')->count();
+        $data['pending'] = Laporan::where('status','like','Pending')->count();
+        $data['close'] = Laporan::where('status','like','Close')->count();
+        return view('dashboard.index')->with('data',$data);
     }
 
     /**

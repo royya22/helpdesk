@@ -26,14 +26,27 @@ Route::get('dashboard','DashboardController@index');
 Route::get('open','TiketController@open');
 Route::get('pending','TiketController@pending');
 Route::get('close','TiketController@close');
-Route::get('close-detail','TiketController@close_detail');
+Route::get('close-detail/{id}','TiketController@close_detail');
 
-Route::get('insident','InsidenController@index');
-Route::get('insident-detail','InsidenController@show');
+Route::get('insiden','InsidenController@index');
+Route::get('create-insiden','InsidenController@create');
+// Route::get('Insiden-detail','InsidenController@show');
 
 Route::get('unit','UnitController@index');
+Route::get('create-unit','UnitController@create');
+Route::post('store-unit','UnitController@store');
+Route::get('detail-unit/{id}','UnitController@show');
+Route::get('edit-unit/{id}','UnitController@edit');
+Route::post('update-unit/{id}','UnitController@update');
+Route::get('delete-unit/{id}','UnitController@destroy');
 
 Route::get('subjek','SubjekController@index');
+Route::get('create-subjek','SubjekController@create');
+Route::post('store-subjek','SubjekController@store');
+Route::get('detail-subjek/{id}','SubjekController@show');
+Route::get('edit-subjek/{id}','SubjekController@edit');
+Route::post('update-subjek/{id}','SubjekController@update');
+Route::get('delete-subjek/{id}','SubjekController@destroy');
 
 Route::get('teknisi','TeknisiController@index');
 Route::get('password','TeknisiController@ubah_password');

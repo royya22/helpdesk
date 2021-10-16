@@ -28,6 +28,6 @@ class CreateSubjekTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subyek');
+        Schema::dropIfExists('subjek');
     }
 }

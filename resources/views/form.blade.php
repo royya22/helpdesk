@@ -56,9 +56,11 @@
                     <div class="form-group form-group-lg">
                       <label>Unit/ Bagian <span class="text-danger">*</span></label>
                       <select class="form-control">
-                        <option>Sekretaris Jenderal</option>
-                        <option>Bagian Sekretariat Ketua MPR RI</option>
-                        <option>Bagian Lain-Lain</option>
+
+                        @foreach ($unit as $unit)
+                        <option value="{{ $unit->kode_unit }}">{{ $unit->nama_unit }}</option>
+                        @endforeach
+                        
                       </select>
                     </div>
                   </div>
@@ -72,13 +74,11 @@
                     <div class="form-group form-group-lg">
                       <label>Subyek dan Deskripsi <span class="text-danger">*</span></label>
                       <select class="form-control">
-                        <option>Koneksi Internet / LAN</option>
-                        <option>Instalasi Baru / Kabel LAN</option>
-                        <option>Aplikasi Penunjang Kinerja</option>
-                        <option>Email</option>
-                        <option>Printer</option>
-                        <option>Virus / Antivirus</option>
-                        <option>Lain-Lain</option>
+
+                        @foreach ($subjek as $subjek)
+                          <option value="{{ $subjek->kode_subjek }}">{{ $subjek->subjek }}</option>
+                        @endforeach
+                        
                       </select>
                       <br>
                       <textarea class="form-control" rows="3" placeholder="Text input"></textarea>

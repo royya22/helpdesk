@@ -64,45 +64,31 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th class="col-xs-3">ID Form<hr>(HH-BB-TTTT)</th>
-                          <th class="col-xs-4">Nama dan Tempat<hr>Subjek dan Keluhan</th>
-                          <th class="col-xs-4">Keterangan</th>
-                          <th class="col-xs-1">Aksi</th>
+                          <th class="col-xs-1">ID Form</th>
+                          <th class="col-xs-2">Tanggal Laporan</th>
+                          <th class="col-xs-3">Nama dan Tempat</th>
+                          <th class="col-xs-4">Subjek dan Keluhan</th>
+                          <th class="col-xs-2">Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">XXI0921A<br>Jumat, <br> 26-7-2021</th>
-                          <td>
-                            <b>Junaedi Ahmad</b> <br> <small>Persidangan, Risalah dan MUSPIM</small>
-                            <hr>
-                            <b>Jaringan Internet</b> <br> <small>Internet mati di Bagian Set. Badan Sosialisasi</small>
-                          </td>
-                          <td>
-                            Formulir wajib di isi, untuk memudahkan dalam pendataan
-                          </td>
-                          <td>
-                            <p>
-                              <button type="button" class="btn btn-success">Close</button>
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">XXI0921A<br>Jumat, <br> 26-7-2021</th>
-                          <td>
-                            <b>Ario Redi</b> <br> <small>Persidangan, Risalah dan MUSPIM</small>
-                            <hr>
-                            <b>Jaringan Internet</b> <br> <small>Internet mati di Bagian Set. Badan Sosialisasi</small>
-                          </td>
-                          <td>
-                            Permohonan diselesaikan oleh Bagian Sistem Informasi dan Data berdasarkan urutan antrian
-                          </td>
-                          <td>
-                            <p>
-                              <button type="button" class="btn btn-success">Close</button>
-                            </p>
-                          </td>
-                        </tr>
+                        @foreach ($data as $data)
+                          <tr>
+                            <th scope="row">{{ $data->kode_permohonan }}</th>
+                            <td>{{ $daftar_hari[date('l', strtotime($data->created_at))] }}, <br> {{ $data->created_at }}</td>
+                            <td>
+                              <b>{{ $data->nama_pemohon }}</b> <br> <small>{{ $data->unit }}</small>
+                            </td>
+                            <td>
+                              <b>{{ $data->subjek }}</b> <br> <span>{{ $data->deskripsi }}</span>
+                            </td>
+                            <td>
+                              <p>
+                                <button type="button" class="btn btn-success btn-xs">Close</button>
+                              </p>
+                            </td>
+                          </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

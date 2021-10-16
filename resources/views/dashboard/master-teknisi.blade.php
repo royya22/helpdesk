@@ -57,7 +57,7 @@
               <div class="panel panel-default address">
                 <br>
                 <div class="panel-heading">
-                  <h3 class="panel-title">Teknisi &nbsp; <small><a href="insident-detail.html"><span class="label label-info">+ Tambah Teknisi</span></a></small></h3>
+                  <h3 class="panel-title">Teknisi &nbsp; <small><a href="Insiden-detail.html"><span class="label label-info">+ Tambah Teknisi</span></a></small></h3>
                 </div>
                 <div class="panel-body">
                   <div class="table-responsive">

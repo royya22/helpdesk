@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,7 +9,7 @@
     <meta name="author" content="BSID">
     <link rel="icon" href="https://setjen.mpr.go.id/img/setjen-min.png">
 
-    <title>Detail Tiket</title>
+    <title>Detail Subjek</title>
     
     <!-- Bootstrap core CSS -->
     <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -32,8 +31,7 @@
     <div class="container">
       <br>
       <p class="text-center">
-        <button type="button" class="btn btn-default"onclick="location.href='{{ url('close') }}';">&larr; Kembali</button>
-        <button type="button" class="btn btn-primary">Cetak</button>
+        
       </p>
       <br>
       <div class="row">
@@ -49,8 +47,7 @@
                 </div>
                 <div class="col-md-8">
                   <br>
-                  <p class="text-center text-uppercase">
-                    <u><b>Formulir Perbaikan Jaringan dan Internet</b></u><br>
+                  <p class="text-center text-uppercase"><br>
                     <b>Bagian Sistem Informasi dan Data</b><br>
                     Biro Hubungan Masyarakat dan Sistem Informasi<br>
                     Setjen MPR RI
@@ -61,45 +58,26 @@
                 </div>
                 <div class="col-md-4">
                   <div class="well">
-                    <address>
-                      <u><strong>{{ $data->nama_pemohon }}</strong></u><br>
-                      {{ $data->unit }}<br>
-                      <abbr title="Phone">Kontak:</abbr> 
-                      <a href="#">{{ $data->no_tlp }}</a>
-                    </address>
+                    <div class="vertical center">
+                      <button type="button" class="btn btn-default" style="margin:3px;" onclick="location.href='{{ url('subjek') }}';"> Kembali</button>
+                      <button type="button" class="btn btn-primary" style="margin:3px;" onclick="location.href='{{ url('edit-subjek',$data->id_subjek) }}';">Edit</button>
+                      <a class="btn btn-danger" title="Hapus Subjek" href="{{ url('delete-subjek',$data->id_subjek) }}" style="margin:3px;" onclick="return confirm('Apakah anda yakin mau menghapus data ini ?')">Hapus</a>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-8">
-                  <img src="https://cdn-icons-png.flaticon.com/512/3572/3572055.png" class="status">
-                    <small>ID Formulir:</small>
-                    <h1>{{ $data->kode_permohonan }}</h1>
-                    <p>{{ $data->created_at }}</p>
+                  {{-- <img src="https://cdn-icons-png.flaticon.com/512/3572/3572055.png" class="status"> --}}
+                    <small>Nama Subjek</small>
+                    <h1>{{ $data->subjek }}</h1>
+                    {{-- <p>{{ $data->created_at }}</p> --}}
                     <hr>
                     <br>
                     <p>
-                      <b>Subjek: </b><br>
-                      <span style="font-size:24px">BSID01 - {{ $data->subjek }}</span>
+                      <small> Kode Subjek </small> <br>
+                      <span style="font-size:24px">{{ $data->kode_subjek }}</span>
                     </p>
                     <br>
-                    <p>
-                      <b>Deskripsi: </b><br>
-                      <span>{{ $data->deskripsi }}</span>
-                    </p>
-                    <br>
-                    <p>
-                      <b>Diselesaikan pada: </b><br>
-                      <span>{{ $daftar_hari[date('l', strtotime($data->updated_at))] }}, {{ $data->updated_at }}</span>
-                    </p>
-                    <br>
-                    <p>
-                      <b>Teknisi: </b><br>
-                      <span>BSID23 - Rizal Muslim</span>
-                    </p>
-                    <br>
-                    <p>
-                      <b>Keterangan: </b><br>
-                      <span>{{ $data->keterangan_close }}</span>
-                    </p>
+                    
                     <br>
                 </div>
               </div>
@@ -107,7 +85,7 @@
             </div>
           </div>
           <h5 class="text-center">
-            <a href="{{ url('close') }}">Kembali</a>
+            {{-- <a href="{{ url('subjek') }}">Kembali</a> --}}
           </h5>
         </div>
       </div>

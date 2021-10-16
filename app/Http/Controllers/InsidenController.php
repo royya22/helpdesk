@@ -13,7 +13,7 @@ class InsidenController extends Controller
      */
     public function index()
     {
-        return view('dashboard.insident');
+        return view('dashboard.Insiden');
     }
 
     /**
@@ -23,7 +23,7 @@ class InsidenController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.form-insiden');
     }
 
     /**
@@ -45,7 +45,7 @@ class InsidenController extends Controller
      */
     public function show()
     {
-        return view('dashboard.insident-detail');
+        // return view('dashboard.Insiden-detail');
     }
 
     /**

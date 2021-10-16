@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subjek;
 use Illuminate\Http\Request;
 
 class SubjekController extends Controller
@@ -13,7 +14,8 @@ class SubjekController extends Controller
      */
     public function index()
     {
-        return view('dashboard.master-subject');
+        $subjek = Subjek::orderBy('id_subjek','ASC')->get();
+        return view('dashboard.master-subjek')->with('subjek',$subjek);
     }
 
     /**
@@ -23,7 +25,7 @@ class SubjekController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.form-subjek');
     }
 
     /**
@@ -34,7 +36,18 @@ class SubjekController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // echo "tesssss";
+        $this->validate($request, [
+            'kode_subjek' => 'required|unique:subjek',
+            'subjek' => 'required'
+        ]);
+
+        $tambah = new Subjek();
+        $tambah->kode_subjek = strtoupper($request['kode_subjek']);
+        $tambah->subjek = $request['subjek'];
+
+        $tambah->save();
+        return redirect()->to('subjek');
     }
 
     /**
@@ -45,7 +58,8 @@ class SubjekController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Subjek::find($id);
+        return view('dashboard.detail-subjek')->with('data',$data);
     }
 
     /**
@@ -56,7 +70,8 @@ class SubjekController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Subjek::find($id);
+        return view('dashboard.edit-subjek')->with('data',$data);
     }
 
     /**
@@ -68,7 +83,25 @@ class SubjekController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = Subjek::where('id_subjek',$id)->first();
+
+        if ($request['kode_subjek'] == $update->kode_subjek) {
+            $this->validate($request, [
+                'kode_subjek' => 'required',
+                'subjek' => 'required'
+            ]);
+        } else {
+            $this->validate($request, [
+                'kode_subjek' => 'required|unique:subjek',
+                'subjek' => 'required'
+            ]);
+        }
+
+        $update->kode_subjek = strtoupper($request['kode_subjek']);
+        $update->subjek = $request['subjek'];
+
+        $update->save();
+        return redirect()->to('subjek');
     }
 
     /**
@@ -79,6 +112,9 @@ class SubjekController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Subjek::find($id);
+        $hapus->delete();
+
+        return redirect()->to('subjek');
     }
 }

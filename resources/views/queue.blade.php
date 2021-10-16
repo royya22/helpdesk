@@ -172,14 +172,14 @@
     <!-- Begin page content -->
     <div class="container-fluid">
       <div class="page-header">
-        <h1 class="text-uppercase text-center">Daftar Antrian Tiket Bulan September 2021</h1>
+        <h1 class="text-uppercase text-center">Daftar Antrian Tiket</h1>
       </div>
       <div id="demo" class="table-responsive">
         <table class="tablesorter">
           <thead>
             <tr>
               <th class="col-md-1"><b>ID Form</b></th>
-              <th class="sorter-shortDate dateFormat-ddmmyyyy"><b>Tanggal<br>(HH-BB-TTTT)</b></th>
+              <th class="sorter-shortDate dateFormat-ddmmyyyy"><b>Tanggal Laporan</b></th>
               <th class="col-md-1"><b>Nama Pemohon</b></th>
               <th class="col-md-2 filter-select filter-exact" data-placeholder="---"><b>Unit/ Bagian</b></th>
               <th class="col-md-2"><b>Ruangan</b></th>
@@ -213,39 +213,39 @@
             </tr>
           </tfoot>
           <tbody>
-            <tr>
-              <td>XXI0921A</td>
-              <td>21-09-2021</td>
-              <td>Oyo</td>
-              <td>Persuratan dan Kearsipan</td>
-              <td>Bharana Graha Lt.2</td>
-              <td>BSID01</td>
-              <td>Pemasangan Kabel Inthernet</td>
-              <td><span class="label label-danger">open</span></td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td>XXI0921A</td>
-              <td>25-06-2021</td>
-              <td>Hera Syarifah</td>
-              <td>ULP</td>
-              <td>Bharana Graha Lt.2</td>
-              <td>BSID74</td>
-              <td>install SAS</td>
-              <td><span class="label label-warning">pending</span></td>
-              <td>filenya rusak, perlu update</td>
-            </tr>
-            <tr>
-              <td>XXI0921A</td>
-              <td>3-12-2020</td>
-              <td>Adi Kusuma</td>
-              <td>Akomodasi</td>
-              <td>Bharana Graha Lt.2</td>
-              <td>BSID14</td>
-              <td>sharing printer</td>
-              <td><span class="label label-success">closed</span></td>
-              <td>komputer baru</td>
-            </tr>
+            @foreach ($laporan as $laporan)
+              <tr>
+                <td>{{ $laporan->kode_permohonan }}</td>
+                <td>{{ $laporan->created_at }}</td>
+                <td>{{ $laporan->nama_pemohon }}</td>
+                <td>{{ $laporan->unit }}</td>
+                <td>{{ $laporan->ruangan }}</td>
+                <td>{{ $laporan->subjek }}</td>
+                <td>{{ $laporan->deskripsi }}</td>
+                <td><span class="label 
+                    <?php 
+                      if ($laporan->status == "Open") {
+                        echo "label-danger";
+                      }elseif ($laporan->status == "Pending") {
+                        echo "label-warning";
+                      } elseif ($laporan->status == "Close") {
+                        echo "label-success";
+                      } 
+                    ?>
+                  ">{{ $laporan->status }}</span></td>
+                <td>
+                  <?php 
+                    if ($laporan->status == "Close") {
+                      echo $laporan->keterangan_close;
+                    }elseif ($laporan->status == "Pending") {
+                      echo $laporan->keterangan_pending;
+                    }elseif ($laporan->status == "Open") {
+                      echo "-";
+                    } 
+                  ?>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

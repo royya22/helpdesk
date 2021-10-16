@@ -15,8 +15,9 @@ class CreateLaporanTable extends Migration
     {
         Schema::create('laporan', function (Blueprint $table) {
             $table->increments('id_laporan');
-            $table->string('kode_pemohon',100)->unique();
+            $table->string('kode_permohonan',100)->unique();
             $table->string('nama_pemohon',100);
+            $table->string('no_tlp',15);
             $table->string('unit',100);
             $table->string('ruangan',100);
             $table->string('subjek',100);
@@ -24,6 +25,7 @@ class CreateLaporanTable extends Migration
             $table->string('status',100);
             $table->string('keterangan_pending',100);
             $table->string('keterangan_close',100);
+            $table->string('teknisi',100);
             $table->timestamps();
         });
     }

@@ -57,7 +57,7 @@
               <div class="panel panel-default address">
                 <br>
                 <div class="panel-heading">
-                  <h3 class="panel-title">Bagian &nbsp; <small><a href="insident-detail.html"><span class="label label-info">+ Tambah Bagian</span></a></small></h3>
+                  <h3 class="panel-title">Bagian &nbsp; <small><a href="{{ url('create-unit') }}"><span class="label label-info">+ Tambah Bagian</span></a></small></h3>
                 </div>
                 <div class="panel-body">
                   <div class="table-responsive">
@@ -100,23 +100,25 @@
                         </tr>
                       </tfoot>
                       <tbody>
-                        <tr>
-                          <th scope="row">XXI0921A</th>
-                          <td>Nama</td>
-                          <td><a href="#">5</a></td>
-                          <td><a href="#">4</a></td>
-                          <td><a href="#">2</a></td>
-                          <td><a href="#">5</a></td>
-                          <td><a href="#">7</a></td>
-                          <td><a href="#">9</a></td>
-                          <td><a href="#">3</a></td>
-                          <td><a href="#">5</a></td>
-                          <td><a href="#">8</a></td>
-                          <td><a href="#">3</a></td>
-                          <td><a href="#">8</a></td>
-                          <td><a href="#">2</a></td>
-                          <td><a href="#">87</a></td>
-                        </tr>
+                        @foreach ($unit as $unit)
+                          <tr>
+                            <th scope="row">{{ $unit->kode_unit }}</th>
+                            <td><a href="{{ url('detail-unit', $unit->id_unit) }}">{{ $unit->nama_unit }}</a></td>
+                            <td><a href="#">5</a></td>
+                            <td><a href="#">4</a></td>
+                            <td><a href="#">2</a></td>
+                            <td><a href="#">5</a></td>
+                            <td><a href="#">7</a></td>
+                            <td><a href="#">9</a></td>
+                            <td><a href="#">3</a></td>
+                            <td><a href="#">5</a></td>
+                            <td><a href="#">8</a></td>
+                            <td><a href="#">3</a></td>
+                            <td><a href="#">8</a></td>
+                            <td><a href="#">2</a></td>
+                            <td><a href="#">87</a></td>
+                          </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

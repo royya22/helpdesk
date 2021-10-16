@@ -65,24 +65,34 @@
                       <thead>
                         <tr>
                           <th class="col-xs-1">ID Form</th>
-                          <th class="col-xs-2">Tanggal<br>(HH-BB-TTTT)</th>
+                          <th class="col-xs-2">Tanggal Laporan</th>
                           <th class="col-xs-2">Nama</th>
                           <th class="col-xs-3">Tempat</th>
                           <th class="col-xs-3">Subjek</th>
-                          <th class="col-xs-1">Formulir</th>
+                          <th class="col-xs-1">Detail Laporan</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">XXI0921A</th>
-                          <td>Jumat, <br> 26-7-2021</td>
-                          <td><b>Memita</b></td>
-                          <td>Persidangan, Risalah dan MUSPIM</td>
-                          <td><b>Jaringan Internet</b></td>
-                          <td>
-                            <a href="close-detail">Detail</a>
-                          </td>
-                        </tr>
+                        @foreach ($data as $data)
+                          <tr>
+                            <th scope="row">{{ $data->kode_permohonan }}</th>
+                            <td>{{ $daftar_hari[date('l', strtotime($data->created_at))] }}, <br> {{ $data->created_at }}</td>
+                            <td>
+                              <b>{{ $data->nama_pemohon }}</b>
+                            </td>
+                            <td>
+                              <b>{{ $data->unit }}</b>
+                            </td>
+                            <td>
+                              <b>{{ $data->subjek }}</b> <br> <span>{{ $data->deskripsi }}</span>
+                            </td>
+                            <td>
+                              <p>
+                                <a href="{{ url('close-detail', $data->id_laporan) }}">Detail</a>
+                              </p>
+                            </td>
+                          </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

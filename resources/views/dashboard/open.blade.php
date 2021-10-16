@@ -65,59 +65,31 @@
                       <thead>
                         <tr>
                           <th class="col-xs-1">ID Form</th>
-                          <th class="col-xs-2">Tanggal<br>(HH-BB-TTTT)</th>
+                          <th class="col-xs-2">Tanggal Laporan</th>
                           <th class="col-xs-3">Nama dan Tempat</th>
                           <th class="col-xs-4">Subjek dan Keluhan</th>
                           <th class="col-xs-2">Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">XXI0921A</th>
-                          <td>Jumat, <br> 26-7-2021</td>
-                          <td>
-                            <b>Memita</b> <br> <small>Persidangan, Risalah dan MUSPIM</small>
-                          </td>
-                          <td>
-                            <b>Jaringan Internet</b> <br> <span>Internet mati di Bagian Set. Badan Sosialisasi</span>
-                          </td>
-                          <td>
-                            <p>
-                              <button type="button" class="btn btn-warning btn-xs">Pending</button>
-                              <button type="button" class="btn btn-success btn-xs">Close</button>
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">XXI0921A</th>
-                          <td>Senin, <br> 29-6-2021</td>
-                          <td>
-                            <b>Yunelda</b> <br> <small>Set. Wakil Ketua MPR VI</small>
-                          </td>
-                          <td><b>Jaringan Internet</b> <br> <span>Gangguan internet</span></td>
-                          <td>
-                            <p>
-                              <button type="button" class="btn btn-warning btn-xs">Pending</button>
-                              <button type="button" class="btn btn-success btn-xs">Close</button>
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">XXI0921A</th>
-                          <td>Sabtu, <br> 6-6-2021</td>
-                          <td>
-                            <b>Memita</b> <br> <small>Persidangan, Risalah dan MUSPIM</small>
-                          </td>
-                          <td>
-                            <b>Jaringan Internet</b> <br> <span>Internet mati di Bagian Set. Badan Sosialisasi</span>
-                          </td>
-                          <td>
-                            <p>
-                              <button type="button" class="btn btn-warning btn-xs">Pending</button>
-                              <button type="button" class="btn btn-success btn-xs">Close</button>
-                            </p>
-                          </td>
-                        </tr>
+                        @foreach ($data as $data)
+                          <tr>
+                            <th scope="row">{{ $data->kode_permohonan }}</th>
+                            <td>{{ $daftar_hari[date('l', strtotime($data->created_at))] }}, <br> {{ $data->created_at }}</td>
+                            <td>
+                              <b>{{ $data->nama_pemohon }}</b> <br> <small>{{ $data->unit }}</small>
+                            </td>
+                            <td>
+                              <b>{{ $data->subjek }}</b> <br> <span>{{ $data->deskripsi }}</span>
+                            </td>
+                            <td>
+                              <p>
+                                <button type="button" class="btn btn-warning btn-xs">Pending</button>
+                                <button type="button" class="btn btn-success btn-xs">Close</button>
+                              </p>
+                            </td>
+                          </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

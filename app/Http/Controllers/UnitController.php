@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class UnitController extends Controller
@@ -13,7 +14,8 @@ class UnitController extends Controller
      */
     public function index()
     {
-        return view('dashboard.master-unit');
+        $unit = Unit::orderBy('id_unit','ASC')->get();
+        return view('dashboard.master-unit')->with('unit',$unit);
     }
 
     /**
@@ -23,7 +25,17 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        $data = Unit::select('kode_unit')->max('kode_unit');
+
+        if ($data == null) {
+            $kode_unit = "001";
+        }else{
+            $kode = (int) $data;
+            $kode = $kode + 1;
+            $kode_unit = str_pad($kode,3,"0",STR_PAD_LEFT);
+        }
+        
+        return view('dashboard.form-unit')->with('kode_unit',$kode_unit);
     }
 
     /**
@@ -34,7 +46,16 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'unit' => 'required',
+        ]);
+
+        $tambah = new Unit();
+        $tambah->kode_unit = $request['kode_unit'];
+        $tambah->nama_unit = $request['unit'];
+
+        $tambah->save();
+        return redirect()->to('unit');
     }
 
     /**
@@ -45,7 +66,8 @@ class UnitController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Unit::find($id);
+        return view('dashboard.detail-unit')->with('data',$data);
     }
 
     /**
@@ -56,7 +78,8 @@ class UnitController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Unit::find($id);
+        return view('dashboard.edit-unit')->with('data',$data);
     }
 
     /**
@@ -68,7 +91,16 @@ class UnitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'unit' => 'required',
+        ]);
+
+        $update = Unit::where('id_unit',$id)->first();
+        $update->kode_unit = $request['kode_unit'];
+        $update->nama_unit = $request['unit'];
+
+        $update->save();
+        return redirect()->to('unit');
     }
 
     /**
@@ -79,6 +111,9 @@ class UnitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hapus = Unit::find($id);
+        $hapus->delete();
+
+        return redirect()->to('unit');
     }
 }

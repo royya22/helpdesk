@@ -79,7 +79,7 @@ use PHPUnit\Framework\Constraint\StringEndsWith;
 use PHPUnit\Framework\Constraint\StringMatchesFormatDescription;
 use PHPUnit\Framework\Constraint\StringStartsWith;
 use PHPUnit\Framework\Constraint\TraversableContainsEqual;
-use PHPUnit\Framework\Constraint\TraversableContainsIdentical;
+use PHPUnit\Framework\Constraint\TraversableContaInsidenical;
 use PHPUnit\Framework\Constraint\TraversableContainsOnly;
 use PHPUnit\Util\Type;
 use PHPUnit\Util\Xml;
@@ -168,7 +168,7 @@ abstract class Assert
      */
     public static function assertContains($needle, iterable $haystack, string $message = ''): void
     {
-        $constraint = new TraversableContainsIdentical($needle);
+        $constraint = new TraversableContaInsidenical($needle);
 
         static::assertThat($haystack, $constraint, $message);
     }
@@ -190,7 +190,7 @@ abstract class Assert
     public static function assertNotContains($needle, iterable $haystack, string $message = ''): void
     {
         $constraint = new LogicalNot(
-            new TraversableContainsIdentical($needle)
+            new TraversableContaInsidenical($needle)
         );
 
         static::assertThat($haystack, $constraint, $message);
@@ -2581,9 +2581,9 @@ abstract class Assert
         return new TraversableContainsEqual($value);
     }
 
-    public static function containsIdentical($value): TraversableContainsIdentical
+    public static function contaInsidenical($value): TraversableContaInsidenical
     {
-        return new TraversableContainsIdentical($value);
+        return new TraversableContaInsidenical($value);
     }
 
     public static function containsOnly(string $type): TraversableContainsOnly

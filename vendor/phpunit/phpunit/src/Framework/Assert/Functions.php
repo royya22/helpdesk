@@ -54,7 +54,7 @@ use PHPUnit\Framework\Constraint\StringEndsWith;
 use PHPUnit\Framework\Constraint\StringMatchesFormatDescription;
 use PHPUnit\Framework\Constraint\StringStartsWith;
 use PHPUnit\Framework\Constraint\TraversableContainsEqual;
-use PHPUnit\Framework\Constraint\TraversableContainsIdentical;
+use PHPUnit\Framework\Constraint\TraversableContaInsidenical;
 use PHPUnit\Framework\Constraint\TraversableContainsOnly;
 use PHPUnit\Framework\MockObject\Rule\AnyInvokedCount as AnyInvokedCountMatcher;
 use PHPUnit\Framework\MockObject\Rule\InvokedAtIndex as InvokedAtIndexMatcher;
@@ -2681,10 +2681,10 @@ if (!function_exists('PHPUnit\Framework\containsEqual')) {
     }
 }
 
-if (!function_exists('PHPUnit\Framework\containsIdentical')) {
-    function containsIdentical($value): TraversableContainsIdentical
+if (!function_exists('PHPUnit\Framework\contaInsidenical')) {
+    function contaInsidenical($value): TraversableContaInsidenical
     {
-        return Assert::containsIdentical(...func_get_args());
+        return Assert::contaInsidenical(...func_get_args());
     }
 }
 

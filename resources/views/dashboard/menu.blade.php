@@ -10,7 +10,7 @@
             </div>
             <p class="text-muted">Insiden</p>
             <div class="list-group">
-              <a href="insident" class="list-group-item <?php if(!empty($menu) && $menu == "insiden") echo "active"; ?>">Daftar Insiden</a>
+              <a href="insiden" class="list-group-item <?php if(!empty($menu) && $menu == "insiden") echo "active"; ?>">Daftar Insiden</a>
             </div>
             <p class="text-muted">Data Master</p>
             <div class="list-group">

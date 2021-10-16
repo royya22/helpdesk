@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laporan;
+use App\Models\Subjek;
+use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LaporanController extends Controller
 {
@@ -13,7 +17,8 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('queue');
+        $laporan = Laporan::orderBy('id_laporan','ASC')->get();
+        return view('queue',['laporan' => $laporan]);
     }
 
     /**
@@ -23,7 +28,9 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        return view('form');
+        $unit = Unit::orderBy('id_unit','ASC')->get();
+        $subjek = Subjek::orderBy('id_subjek','ASC')->get();
+        return view('form')->with('unit',$unit)->with('subjek',$subjek);
     }
 
     /**

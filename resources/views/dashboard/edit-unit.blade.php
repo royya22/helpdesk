@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,8 +9,8 @@
     <meta name="author" content="BSID">
     <link rel="icon" href="https://setjen.mpr.go.id/img/setjen-min.png">
 
-    <title>Detail Tiket</title>
-    
+    <title>Detail Insiden</title>
+
     <!-- Bootstrap core CSS -->
     <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -32,7 +31,7 @@
     <div class="container">
       <br>
       <p class="text-center">
-        <button type="button" class="btn btn-default"onclick="location.href='{{ url('close') }}';">&larr; Kembali</button>
+        <button type="button" class="btn btn-default"onclick="location.href='unit';">&larr; Kembali</button>
         <button type="button" class="btn btn-primary">Cetak</button>
       </p>
       <br>
@@ -41,73 +40,47 @@
           <div class="panel panel-default address">
             <div class="panel-body">
               <br>
-              <div class="row">
-                <div class="col-md-4">
-                  <center>
-                    <img class="img-responsive" alt="Responsive image" src="{{ URL::asset('assets/img/sid.svg') }}" style="max-width:120px">
-                  </center>
-                </div>
-                <div class="col-md-8">
-                  <br>
-                  <p class="text-center text-uppercase">
-                    <u><b>Formulir Perbaikan Jaringan dan Internet</b></u><br>
-                    <b>Bagian Sistem Informasi dan Data</b><br>
-                    Biro Hubungan Masyarakat dan Sistem Informasi<br>
-                    Setjen MPR RI
-                  </p>
-                </div>
-                <div class="col-md-12">
-                  <br><hr><br>
-                </div>
-                <div class="col-md-4">
-                  <div class="well">
-                    <address>
-                      <u><strong>{{ $data->nama_pemohon }}</strong></u><br>
-                      {{ $data->unit }}<br>
-                      <abbr title="Phone">Kontak:</abbr> 
-                      <a href="#">{{ $data->no_tlp }}</a>
-                    </address>
+              <center>
+                <img class="img-responsive" alt="Responsive image" src="{{ URL::asset('assets/img/sid.svg') }}" style="max-width:120px">
+                <h3>Formulir Edit Unit/Bagian</h3>
+                <p>
+                  {{-- Bagian Sistem Informasi dan Data --}}
+                </p>
+              </center>
+              <hr>
+              <form class="form-horizontal" id="input-form" action="{{ url('update-unit',$data->id_unit) }}" method="post">
+                {!! csrf_field() !!}
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Kode Unit</label>
+                  <div class="col-sm-9">
+                    <h1 class="text-uppercase">{{ $data->kode_unit }}</h1>
+                    <input hidden type="text" name="kode_unit" id="kode_unit" class="span6" value="{{ $data->kode_unit }}"/>
                   </div>
                 </div>
-                <div class="col-md-8">
-                  <img src="https://cdn-icons-png.flaticon.com/512/3572/3572055.png" class="status">
-                    <small>ID Formulir:</small>
-                    <h1>{{ $data->kode_permohonan }}</h1>
-                    <p>{{ $data->created_at }}</p>
-                    <hr>
-                    <br>
-                    <p>
-                      <b>Subjek: </b><br>
-                      <span style="font-size:24px">BSID01 - {{ $data->subjek }}</span>
-                    </p>
-                    <br>
-                    <p>
-                      <b>Deskripsi: </b><br>
-                      <span>{{ $data->deskripsi }}</span>
-                    </p>
-                    <br>
-                    <p>
-                      <b>Diselesaikan pada: </b><br>
-                      <span>{{ $daftar_hari[date('l', strtotime($data->updated_at))] }}, {{ $data->updated_at }}</span>
-                    </p>
-                    <br>
-                    <p>
-                      <b>Teknisi: </b><br>
-                      <span>BSID23 - Rizal Muslim</span>
-                    </p>
-                    <br>
-                    <p>
-                      <b>Keterangan: </b><br>
-                      <span>{{ $data->keterangan_close }}</span>
-                    </p>
-                    <br>
+                
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Nama Unit/Bagian</label>
+                  <div class="col-sm-9">
+                    <textarea name="unit" id="unit" class="form-control" rows="3" style="resize: none;" autofocus>{{ $data->nama_unit }}</textarea>
+                    @if ($errors->has('unit'))
+                      <span class="help-block">
+                        <strong style="color: red">{{ $errors->first('unit') }}</strong>
+                      </span>
+                    @endif
+                  </div>
                 </div>
-              </div>
+                
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
               <br>
             </div>
           </div>
           <h5 class="text-center">
-            <a href="{{ url('close') }}">Kembali</a>
+            <a href="close.html">Kembali</a>
           </h5>
         </div>
       </div>

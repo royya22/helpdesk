@@ -11,7 +11,7 @@
     <link rel="icon" href="https://setjen.mpr.go.id/img/setjen-min.png">
     <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/offcanvas/">
 
-    <title>Catatan Insident</title>
+    <title>Master Subjek</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
   <body class="dashboard">
 
     @section('menu')
-      <?php $menu = "insiden"; ?>
+      <?php $menu = "subjek"; ?>
     @endsection
 
     @include('dashboard.header')
@@ -57,60 +57,74 @@
               <div class="panel panel-default address">
                 <br>
                 <div class="panel-heading">
-                  <h3 class="panel-title">Insiden &nbsp; <small><a href="insident-detail.html"><span class="label label-info">+ Tambah Insiden</span></a></small></h3>
+                  <h3 class="panel-title">Subjek &nbsp; <small><a href="{{ url('create-subjek') }}"><span class="label label-info">+ Tambah Subjek</span></a></small></h3>
                 </div>
                 <div class="panel-body">
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th class="col-xs-2">ID Insiden</th>
-                          <th class="col-xs-2">Tanggal<br>(HH-BB-TTTT)</th>
-                          <th class="col-xs-3">Nama Insiden</th>
-                          <th class="col-xs-3">Tempat Kejadian</th>
-                          <th class="col-xs-1">Status</th>
-                          <th class="col-xs-1">Aksi</th>
+                          <th>ID Subjek</th>
+                          <th>Nama Subjek</th>
+                          <th>Jan</th>
+                          <th>Feb</th>
+                          <th>Mar</th>
+                          <th>Apr</th>
+                          <th>Mei</th>
+                          <th>Jun</th>
+                          <th>Jul</th>
+                          <th>Agu</th>
+                          <th>Sep</th>
+                          <th>Okt</th>
+                          <th>Nov</th>
+                          <th>Des</th>
+                          <th>Total</th>
                         </tr>
                       </thead>
+                      <tfoot>
+                        <tr class="success">
+                          <th colspan="2">Total</th>
+                          <th>23</th>
+                          <th>64</th>
+                          <th>23</th>
+                          <th>45</th>
+                          <th>36</th>
+                          <th>326</th>
+                          <th>89</th>
+                          <th>85</th>
+                          <th>56</th>
+                          <th>23</th>
+                          <th>74</th>
+                          <th>34</th>
+                          <th>2342</th>
+                        </tr>
+                      </tfoot>
                       <tbody>
-                        <tr>
-                          <th scope="row">XXI0921A</th>
-                          <td>Jumat, <br> 26-7-2021</td>
-                          <td>AC Central Server Mati</td>
-                          <td>Bharana Lt.1</td>
-                          <td><span class="label label-danger">Open</span></td>
-                          <td><a href="insident-detail">detail</a></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">XXI0921A</th>
-                          <td>Jumat, <br> 26-7-2021</td>
-                          <td>AC Central Server Mati</td>
-                          <td>Bharana Lt.1</td>
-                          <td><span class="label label-warning">Pending</span></td>
-                          <td><a href="insident-detail">detail</a></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">XXI0921A</th>
-                          <td>Jumat, <br> 26-7-2021</td>
-                          <td>AC Central Server Mati</td>
-                          <td>Bharana Lt.1</td>
-                          <td><span class="label label-success">Close</span></td>
-                          <td><a href="insident-detail">detail</a></td>
-                        </tr>
+                        @foreach ($subjek as $subjek)
+                          <tr>
+                            <th scope="row">{{ $subjek->kode_subjek }}</th>
+                            <td><a href="{{ url('detail-subjek', $subjek->id_subjek) }}">{{ $subjek->subjek }}</a></td>
+                            <td>5</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>7</td>
+                            <td>9</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>8</td>
+                            <td>2</td>
+                            <td>87</td>
+                          </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
-                  <nav aria-label="..." style="margin-bottom:-4px">
-                    <ul class="pagination">
-                      <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                    </ul>
-                  </nav>
+                  <p style="margin:0">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> &nbsp; Cetak</button>
+                  </p>
                   <br>
                 </div>
               </div>

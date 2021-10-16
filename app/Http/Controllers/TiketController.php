@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laporan;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 
@@ -9,21 +10,61 @@ class TiketController extends Controller
 {
     public function open()
     {
-        return view('dashboard.open');
+        $data = Laporan::where('status','like','Open')->orderBy('id_laporan','ASC')->get();
+        $daftar_hari = array(
+            'Sunday' => 'Minggu',
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu'
+           );
+        return view('dashboard.open')->with('data',$data)->with('daftar_hari',$daftar_hari);
     }
 
     public function pending()
     {
-        return view('dashboard.pending');
+        $data = Laporan::where('status','like','Pending')->orderBy('id_laporan','ASC')->get();
+        $daftar_hari = array(
+            'Sunday' => 'Minggu',
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu'
+           );
+        return view('dashboard.pending')->with('data',$data)->with('daftar_hari',$daftar_hari);
     }
 
     public function close()
     {
-        return view('dashboard.close');
+        $data = Laporan::where('status','like','Close')->orderBy('id_laporan','ASC')->get();
+        $daftar_hari = array(
+            'Sunday' => 'Minggu',
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu'
+           );
+        return view('dashboard.close')->with('data',$data)->with('daftar_hari',$daftar_hari);
     }
 
-    public function close_detail()
+    public function close_detail($id)
     {
-        return view('dashboard.close-detail');
+        $data = Laporan::find($id);
+        $daftar_hari = array(
+            'Sunday' => 'Minggu',
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu'
+           );
+        return view('dashboard.close-detail')->with('data',$data)->with('daftar_hari',$daftar_hari);
     }
 }
