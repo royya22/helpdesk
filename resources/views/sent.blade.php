@@ -39,7 +39,7 @@
                 Permohonan diselesaikan oleh Bagian Sistem Informasi dan Data berdasarkan urutan antrian
               </p>
               <p>ID Formulir Anda:</p>
-              <h2>BSID00001</h2>
+              <h2>{{ $data->kode_permohonan }}</h2>
               <p>Silahkan hubungi <i>customer support</i> apabila kebutuhan Anda sangat mendesak.</p>
             </div>
           </div>
@@ -53,7 +53,7 @@
             </div>
           </div>
           <p>
-            <button type="button" class="btn btn-default btn-block text-uppercase" onclick="location.href='queue.html';">Lihat Laporan</button>
+            <button type="button" class="btn btn-default btn-block text-uppercase" onclick="location.href='{{ url('laporan') }}';">Lihat Laporan</button>
           </p>
           <br>
           <h5 class="text-center">

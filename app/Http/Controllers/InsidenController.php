@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laporan;
 use Illuminate\Http\Request;
 
 class InsidenController extends Controller
@@ -13,7 +14,10 @@ class InsidenController extends Controller
      */
     public function index()
     {
-        return view('dashboard.Insiden');
+        $hitung['open'] = Laporan::where('status','like','1')->count();
+        $hitung['pending'] = Laporan::where('status','like','2')->count();
+        $hitung['close'] = Laporan::where('status','like','3')->count();
+        return view('dashboard.Insiden')->with('hitung',$hitung);
     }
 
     /**

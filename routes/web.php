@@ -19,13 +19,18 @@ Route::get('/', function () {
 
 Route::get('laporan','LaporanController@index');
 Route::get('create-laporan','LaporanController@create');
+Route::post('store-laporan','LaporanController@store');
 
 Route::get('login','DashboardController@login');
 Route::get('dashboard','DashboardController@index');
 
 Route::get('open','TiketController@open');
 Route::get('pending','TiketController@pending');
+Route::get('form-pending/{id}','TiketController@form_pending');
+Route::post('store-pending/{id}','TiketController@store_pending');
 Route::get('close','TiketController@close');
+Route::get('form-close/{id}','TiketController@form_close');
+Route::post('store-close/{id}','TiketController@store_close');
 Route::get('close-detail/{id}','TiketController@close_detail');
 
 Route::get('insiden','InsidenController@index');

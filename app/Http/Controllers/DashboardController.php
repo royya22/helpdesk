@@ -18,10 +18,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $data['open'] = Laporan::where('status','like','Open')->count();
-        $data['pending'] = Laporan::where('status','like','Pending')->count();
-        $data['close'] = Laporan::where('status','like','Close')->count();
-        return view('dashboard.index')->with('data',$data);
+        $hitung['open'] = Laporan::where('status','like','1')->count();
+        $hitung['pending'] = Laporan::where('status','like','2')->count();
+        $hitung['close'] = Laporan::where('status','like','3')->count();
+        return view('dashboard.index')->with('hitung',$hitung);
     }
 
     /**

@@ -85,7 +85,7 @@
             </div>
           </div>
           <h5 class="text-center">
-            <a href="close.html">Kembali</a>
+            {{-- <a href="close.html">Kembali</a> --}}
           </h5>
         </div>
       </div>

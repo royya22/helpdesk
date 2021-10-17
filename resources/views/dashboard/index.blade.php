@@ -65,13 +65,13 @@
                   <h2>Udah ngopi belum?</h2>
                   <br>
                   <div class="alert alert-danger" role="alert">
-                    Ada <a href="open" class="alert-link"><span class="badge">{{ $data['open'] }} tiket</span></a> baru untuk hari ini. <strong>Semangat!</strong>
+                    Ada <a href="open" class="alert-link"><span class="badge">{{ $hitung['open'] }} tiket</span></a> baru untuk hari ini. <strong>Semangat!</strong>
                   </div>
                   <div class="alert alert-warning" role="alert">
-                    Ada <a href="pending" class="alert-link"><span class="badge">{{ $data['pending'] }} tiket</span></a> sedang tertunda. <strong>Jangan menyerah!</strong>
+                    Ada <a href="pending" class="alert-link"><span class="badge">{{ $hitung['pending'] }} tiket</span></a> sedang tertunda. <strong>Jangan menyerah!</strong>
                   </div>
                   <div class="alert alert-success" role="alert">
-                    Ada <a href="close" class="alert-link"><span class="badge">{{ $data['close'] }} tiket</span></a> telah diselesaikan tahun ini. <strong>Kamu Hebat!</strong>
+                    Ada <a href="close" class="alert-link"><span class="badge">{{ $hitung['close'] }} tiket</span></a> telah diselesaikan tahun ini. <strong>Kamu Hebat!</strong>
                   </div>
                   <p>Selalu semangat ya!</p>
                   <br>

@@ -38,59 +38,92 @@
               <br>
               <h2>Formulir Layanan</h2>
               <br>
-              <form>
+              <form id="input-form" action="{{ url('store-laporan') }}" method="post">
+                {!! csrf_field() !!}
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="form-group form-group-lg">
+                    <div class="form-group form-group-lg control-group{{ $errors->has('nama') ? ' has-error' : '' }}">
                       <label>Nama Pemohon <span class="text-danger">*</span></label>
-                      <input type="text" class="form-control" placeholder="Text input">
+                      <input name="nama" type="text" value="{{ old('nama') }}" class="form-control" placeholder="Text input">
+                        @if ($errors->has('nama'))
+                          <span class="help-block">
+                            <strong style="color: red">{{ $errors->first('nama') }}</strong>
+                          </span>
+                        @endif
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group form-group-lg">
                       <label>No Telp/ Whatsapp <span class="text-danger">*</span></label>
-                      <input type="text" class="form-control" placeholder="Text input">
+                      <input name="no_tlp" value="{{ old('no_tlp') }}" type="text" class="form-control" placeholder="Text input">
+                        @if ($errors->has('no_tlp'))
+                          <span class="help-block">
+                            <strong style="color: red">{{ $errors->first('no_tlp') }}</strong>
+                          </span>
+                        @endif
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group form-group-lg">
                       <label>Unit/ Bagian <span class="text-danger">*</span></label>
-                      <select class="form-control">
+                      <select name="unit" class="form-control">
 
+                        <option value="" disable="true" selected="true">--- Unit/Bagian ---</option>
                         @foreach ($unit as $unit)
                         <option value="{{ $unit->kode_unit }}">{{ $unit->nama_unit }}</option>
                         @endforeach
                         
                       </select>
+                        @if ($errors->has('unit'))
+                          <span class="help-block">
+                            <strong style="color: red">{{ $errors->first('unit') }}</strong>
+                          </span>
+                        @endif
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group form-group-lg">
                       <label>Lokasi/ Ruangan <span class="text-danger">*</span></label>
-                      <input type="text" class="form-control" placeholder="Text input">
+                      <input name="ruangan" type="text" value="{{ old('ruangan') }}" class="form-control" placeholder="Text input">
+                        @if ($errors->has('ruangan'))
+                          <span class="help-block">
+                            <strong style="color: red">{{ $errors->first('ruangan') }}</strong>
+                          </span>
+                        @endif
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group form-group-lg">
                       <label>Subyek dan Deskripsi <span class="text-danger">*</span></label>
-                      <select class="form-control">
+                      <select name="subjek" class="form-control">
 
+                        <option value="" disable="true" selected="true">--- Subjek ---</option>
                         @foreach ($subjek as $subjek)
                           <option value="{{ $subjek->kode_subjek }}">{{ $subjek->subjek }}</option>
                         @endforeach
                         
                       </select>
+                      @if ($errors->has('subjek'))
+                        <span class="help-block">
+                          <strong style="color: red">{{ $errors->first('subjek') }}</strong>
+                        </span>
+                      @endif
                       <br>
-                      <textarea class="form-control" rows="3" placeholder="Text input"></textarea>
+                      <textarea name="deskripsi" class="form-control" rows="3" placeholder="Text input">{{ old('deskripsi') }}</textarea>
+                        @if ($errors->has('deskripsi'))
+                          <span class="help-block">
+                            <strong style="color: red">{{ $errors->first('deskripsi') }}</strong>
+                          </span>
+                        @endif
                     </div>
                   </div>
                 </div>
+                <br>
+                <p>
+                  <button type="submit" class="btn btn-primary btn-lg text-uppercase">Kirim Formulir</button>
+                </p>
+                <br>
               </form>
-              <br>
-              <p>
-                <button type="button" class="btn btn-primary btn-lg text-uppercase" onclick="location.href='sent.html';" >Kirim Formulir</button>
-              </p>
-              <br>
             </div>
           </div>
         </div>

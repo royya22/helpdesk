@@ -84,7 +84,7 @@
                             </td>
                             <td>
                               <p>
-                                <button type="button" class="btn btn-success btn-xs">Close</button>
+                                <button type="button" class="btn btn-success btn-xs" onclick="location.href='form-close/{{ $data->id_laporan }}';">Close</button>
                               </p>
                             </td>
                           </tr>

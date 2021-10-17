@@ -218,28 +218,31 @@
                 <td>{{ $laporan->kode_permohonan }}</td>
                 <td>{{ $laporan->created_at }}</td>
                 <td>{{ $laporan->nama_pemohon }}</td>
-                <td>{{ $laporan->unit }}</td>
+                <td>{{ $laporan->k_unit->nama_unit }}</td>
                 <td>{{ $laporan->ruangan }}</td>
-                <td>{{ $laporan->subjek }}</td>
+                <td>{{ $laporan->k_subjek->subjek }}</td>
                 <td>{{ $laporan->deskripsi }}</td>
-                <td><span class="label 
+                <td><span style="display: inline-block; width: 100px;height: 20px;" class="label 
                     <?php 
-                      if ($laporan->status == "Open") {
+                      if ($laporan->status == "1") {
                         echo "label-danger";
-                      }elseif ($laporan->status == "Pending") {
+                    ?>"><p style="margin-top: 3px;color: white;font-weight: bold">Open</p><?php
+                      }elseif ($laporan->status == "2") {
                         echo "label-warning";
-                      } elseif ($laporan->status == "Close") {
+                    ?>"><p style="margin-top: 3px;color: white;font-weight: bold">Pending</p><?php
+                      } elseif ($laporan->status == "3") {
                         echo "label-success";
-                      } 
+                    ?>"><p style="margin-top: 3px;color: white;font-weight: bold">Close</p><?php
+                      }
                     ?>
-                  ">{{ $laporan->status }}</span></td>
+                  </span></td>
                 <td>
                   <?php 
-                    if ($laporan->status == "Close") {
+                    if ($laporan->status == "3") {
                       echo $laporan->keterangan_close;
-                    }elseif ($laporan->status == "Pending") {
+                    }elseif ($laporan->status == "2") {
                       echo $laporan->keterangan_pending;
-                    }elseif ($laporan->status == "Open") {
+                    }elseif ($laporan->status == "1") {
                       echo "-";
                     } 
                   ?>

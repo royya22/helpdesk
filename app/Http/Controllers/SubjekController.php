@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laporan;
 use App\Models\Subjek;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,12 @@ class SubjekController extends Controller
      */
     public function index()
     {
+        $hitung['open'] = Laporan::where('status','like','1')->count();
+        $hitung['pending'] = Laporan::where('status','like','2')->count();
+        $hitung['close'] = Laporan::where('status','like','3')->count();
+        
         $subjek = Subjek::orderBy('id_subjek','ASC')->get();
-        return view('dashboard.master-subjek')->with('subjek',$subjek);
+        return view('dashboard.master-subjek')->with('subjek',$subjek)->with('hitung',$hitung);
     }
 
     /**

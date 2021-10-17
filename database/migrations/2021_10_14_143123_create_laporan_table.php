@@ -23,9 +23,9 @@ class CreateLaporanTable extends Migration
             $table->string('subjek',100);
             $table->text('deskripsi');
             $table->string('status',100);
-            $table->string('keterangan_pending',100);
-            $table->string('keterangan_close',100);
-            $table->string('teknisi',100);
+            $table->string('keterangan_pending',100)->default("");
+            $table->string('keterangan_close',100)->default("");
+            $table->string('teknisi',100)->default('');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laporan;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,12 @@ class UnitController extends Controller
      */
     public function index()
     {
+        $hitung['open'] = Laporan::where('status','like','1')->count();
+        $hitung['pending'] = Laporan::where('status','like','2')->count();
+        $hitung['close'] = Laporan::where('status','like','3')->count();
+        
         $unit = Unit::orderBy('id_unit','ASC')->get();
-        return view('dashboard.master-unit')->with('unit',$unit);
+        return view('dashboard.master-unit')->with('unit',$unit)->with('hitung',$hitung);
     }
 
     /**

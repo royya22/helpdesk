@@ -29,7 +29,7 @@
     <div class="container">
       <br>
       <p class="text-center">
-        <button type="button" class="btn btn-default"onclick="location.href='dashboard';">&larr; Kembali</button>
+        <button type="button" class="btn btn-default"onclick="location.href='{{ url('dashboard') }}';">&larr; Kembali</button>
       </p>
       <br>
       <div class="row">

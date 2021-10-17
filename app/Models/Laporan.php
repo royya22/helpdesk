@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Laporan extends Model
 {
@@ -11,4 +12,24 @@ class Laporan extends Model
     protected $table = 'laporan';
     protected $primaryKey = 'id_laporan';
     protected $fillable = ['kode_permohonan','nama_pemohon','no_tlp','unit','ruangan','subjek','deskripsi','status','keterangan_pending','keterangan_close'];
+
+    /**
+     * Get the unit that owns the Laporan
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function k_unit(): BelongsTo
+    {
+        return $this->belongsTo(Unit::class,'unit','kode_unit');
+    }
+
+    /**
+     * Get the subjek that owns the Laporan
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function k_subjek(): BelongsTo
+    {
+        return $this->belongsTo(Subjek::class, 'subjek','kode_subjek');
+    }
 }

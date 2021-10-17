@@ -31,7 +31,7 @@
     <div class="container">
       <br>
       <p class="text-center">
-        <button type="button" class="btn btn-default"onclick="location.href='unit';">&larr; Kembali</button>
+        <button type="button" class="btn btn-default"onclick="location.href='{{ url()->previous() }}';">&larr; Kembali</button>
         <button type="button" class="btn btn-primary">Cetak</button>
       </p>
       <br>
@@ -63,10 +63,10 @@
                   <div class="col-sm-9">
                     <textarea name="unit" id="unit" class="form-control" rows="3" style="resize: none;" autofocus></textarea>
                     @if ($errors->has('unit'))
-						<span class="help-block">
-							<strong style="color: red">{{ $errors->first('unit') }}</strong>
-						</span>
-					@endif
+                      <span class="help-block">
+                        <strong style="color: red">{{ $errors->first('unit') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 
@@ -80,7 +80,7 @@
             </div>
           </div>
           <h5 class="text-center">
-            <a href="close.html">Kembali</a>
+            {{-- <a href="close.html">Kembali</a> --}}
           </h5>
         </div>
       </div>

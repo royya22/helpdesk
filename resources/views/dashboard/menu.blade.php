@@ -4,9 +4,9 @@
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
             <div class="list-group">
               <a href="dashboard" class="list-group-item <?php if(!empty($menu) && $menu == "dashboard") echo "active"; ?>">Beranda</a>
-              <a href="open" class="list-group-item <?php if(!empty($menu) && $menu == "open") echo "active"; ?>">Tiket Open <span class="badge">3</span></a>
-              <a href="pending" class="list-group-item <?php if(!empty($menu) && $menu == "pending") echo "active"; ?>">Tiket Pending <span class="badge">10</span></a>
-              <a href="close" class="list-group-item <?php if(!empty($menu) && $menu == "close") echo "active"; ?>">Tiket Close <span class="badge">212</span></a>
+              <a href="open" class="list-group-item <?php if(!empty($menu) && $menu == "open") echo "active"; ?>">Tiket Open <span class="badge">{{ $hitung['open'] }}</span></a>
+              <a href="pending" class="list-group-item <?php if(!empty($menu) && $menu == "pending") echo "active"; ?>">Tiket Pending <span class="badge">{{ $hitung['pending'] }}</span></a>
+              <a href="close" class="list-group-item <?php if(!empty($menu) && $menu == "close") echo "active"; ?>">Tiket Close <span class="badge">{{ $hitung['close'] }}</span></a>
             </div>
             <p class="text-muted">Insiden</p>
             <div class="list-group">
